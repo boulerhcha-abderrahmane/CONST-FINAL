@@ -1,0 +1,331 @@
+/* Style général */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Section principale */
+.join-consultation-section {
+    padding: 50px 0;
+    min-height: calc(100vh - 80px); /* Hauteur totale moins header */
+    display: flex;
+    align-items: center;
+}
+
+/* Titre de la section */
+.section-title {
+    text-align: center;
+    font-size: 2.5em;
+    color: #00A884;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #00A884;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+/* Conteneur du formulaire */
+.join-info {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.join-info p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Style du formulaire */
+#join-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: 500;
+    font-size: 1.1em;
+}
+
+.form-group label i {
+    color: #00A884;
+    margin-right: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e1e1e1;
+    border-radius: 10px;
+    font-size: 1.1em;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.form-group input:focus {
+    border-color: #00A884;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(0,168,132,0.1);
+    background: white;
+}
+
+.form-group input::placeholder {
+    color: #aaa;
+}
+
+/* Bouton de connexion */
+.btn-join {
+    background: #00A884;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 15px 40px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn-join i {
+    font-size: 1.2em;
+}
+
+.btn-join:hover {
+    background: #008f6f;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,168,132,0.3);
+}
+
+.btn-join:active {
+    transform: translateY(0);
+}
+
+/* Animation de chargement */
+.loading {
+    display: none;
+    margin: 20px auto;
+}
+
+.loading::after {
+    content: '';
+    display: block;
+    width: 30px;
+    height: 30px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #00A884;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Message d'erreur */
+.error-message {
+    color: #dc3545;
+    margin-top: 5px;
+    font-size: 0.9em;
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    .join-info {
+        padding: 30px 20px;
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .form-group input {
+        padding: 12px;
+    }
+
+    .btn-join {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.join-info {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* États de focus améliorés */
+.form-group input:focus {
+    border-color: #00A884;
+    box-shadow: 0 0 0 4px rgba(0,168,132,0.1);
+}
+
+/* Validation visuelle */
+.form-group input.valid {
+    border-color: #28a745;
+    background: url('check.svg') no-repeat right 15px center;
+}
+
+.form-group input.invalid {
+    border-color: #dc3545;
+    background: url('error.svg') no-repeat right 15px center;
+}
+
+/* Style du menu de navigation vertical */
+.nav-links {
+    position: fixed;
+    left: 20px;
+    top: 100px; /* Position en haut, sous le header */
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #00A884; /* Couleur verte pour tous les liens */
+    padding: 8px 15px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    background: #f8f9fa;
+    border-left: 3px solid #00A884; /* Bordure verte pour tous */
+}
+
+/* Effet de survol */
+.nav-links a:hover {
+    background: #e8f5f3; /* Fond légèrement vert au survol */
+    transform: translateX(5px);
+    box-shadow: 0 2px 5px rgba(0,168,132,0.1);
+}
+
+/* Style pour le lien actif */
+.nav-links a.active {
+    background: #00A884;
+    color: white;
+    font-weight: 500;
+    border-left: 3px solid #008f6f;
+}
+
+/* Style pour les icônes */
+.nav-links a::before {
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    margin-right: 10px;
+    font-size: 14px;
+    width: 20px;
+    text-align: center;
+}
+
+.nav-links a[href="acceil.html"]::before {
+    content: '\f015'; /* Icône maison */
+}
+
+.nav-links a[href="rendez-vous.html"]::before {
+    content: '\f073'; /* Icône calendrier */
+}
+
+.nav-links a[href="mes-consultations.html"]::before {
+    content: '\f0ae'; /* Icône liste */
+}
+
+.nav-links a[href="contact.html"]::before {
+    content: '\f0e0'; /* Icône enveloppe */
+}
+
+/* Animation d'entrée */
+.nav-links {
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        position: static;
+        margin: 20px;
+        width: auto;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+}
+
+/* Effet de focus pour l'accessibilité */
+.nav-links a:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0,168,132,0.2);
+}

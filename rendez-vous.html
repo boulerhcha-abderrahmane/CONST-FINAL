@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prendre Rendez-vous - DabaDoct</title>
+    <link rel="stylesheet" href="render_vous.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<body>
+    <!-- Même top-bar et header que index.html -->
+    
+    <main>
+        <section class="appointment-section animate__animated animate__fadeIn">
+            <div class="container">
+                <h2 class="section-title">Prendre Rendez-vous</h2>
+                
+                <div class="appointment-container">
+                    <div class="appointment-form">
+                        <form id="rdv-form" onsubmit="submitAppointmentRequest(event)">
+                            <div class="form-group">
+                                <label for="service"><i class="fas fa-briefcase-medical"></i> Type de Service</label>
+                                <select id="service" required>
+                                    <option value="">Sélectionnez un service</option>
+                                    <optgroup label="Consultations Médicales">
+                                        <option value="teleconsultation">Téléconsultation - 200 DH</option>
+                                        <option value="consultation-domicile">Consultation à domicile - 400 DH</option>
+                                        <option value="consultation-cabinet">Consultation au cabinet - 300 DH</option>
+                                    </optgroup>
+                                    <optgroup label="Services Spécialisés">
+                                        <option value="suivi-grossesse">Suivi de grossesse - 500 DH</option>
+                                        <option value="pediatrie">Pédiatrie - 400 DH</option>
+                                        <option value="cardiologie">Cardiologie - 600 DH</option>
+                                    </optgroup>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="doctor"><i class="fas fa-user-md"></i> Médecin</label>
+                                <select id="doctor" required disabled>
+                                    <option value="">Choisissez d'abord un service</option>
+                                </select>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="date"><i class="fas fa-calendar-alt"></i> Date</label>
+                                    <input type="date" id="date" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="time"><i class="fas fa-clock"></i> Heure</label>
+                                    <select id="time" required>
+                                        <option value="">Choisir une heure</option>
+                                        <option value="09:00">09:00</option>
+                                        <option value="10:00">10:00</option>
+                                        <option value="11:00">11:00</option>
+                                        <option value="14:00">14:00</option>
+                                        <option value="15:00">15:00</option>
+                                        <option value="16:00">16:00</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="symptoms"><i class="fas fa-notes-medical"></i> Symptômes / Raison de la visite</label>
+                                <textarea id="symptoms" rows="4" placeholder="Décrivez vos symptômes ou la raison de votre visite..."></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="files"><i class="fas fa-file-medical"></i> Documents Médicaux (optionnel)</label>
+                                <input type="file" id="files" multiple>
+                                <small>Formats acceptés: PDF, JPG, PNG (Max 5MB)</small>
+                            </div>
+
+                            <div class="payment-section">
+                                <h3><i class="fas fa-credit-card"></i> Paiement de la consultation</h3>
+                                <div class="price-summary">
+                                    <div class="price-details">
+                                        <span>Montant à payer:</span>
+                                        <span class="total-price" id="consultation-price">350 DH</span>
+                                    </div>
+                                    <div class="payment-methods">
+                                        <label class="payment-method">
+                                            <input type="radio" name="payment" value="card" checked>
+                                            <span><i class="fas fa-credit-card"></i> Carte bancaire</span>
+                                        </label>
+                                        <label class="payment-method">
+                                            <input type="radio" name="payment" value="paypal">
+                                            <span><i class="fab fa-paypal"></i> PayPal</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="button-group">
+                                <button type="button" class="btn-payment" onclick="proceedToPayment()">
+                                    <i class="fas fa-lock"></i>
+                                    Payer maintenant
+                                </button>
+                                <button type="submit" class="btn-submit" onclick="submitAppointmentRequest(event)">
+                                    <i class="fas fa-calendar-check"></i>
+                                    Soumettre la demande de rendez-vous
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="appointment-info">
+                        <div class="info-card">
+                            <h3><i class="fas fa-info-circle"></i> Informations Importantes</h3>
+                            <ul>
+                                <li>Préparez une connexion internet stable</li>
+                                <li>Assurez-vous d'avoir une caméra et un micro fonctionnels</li>
+                                <li>Ayez vos documents médicaux en version numérique</li>
+                                <li>Le paiement se fait en ligne avant la consultation</li>
+                                <li>Le lien de consultation sera disponible dans votre espace personnel 15 minutes avant le rendez-vous</li>
+                                <li>Vous recevrez également un rappel par email avec les détails de votre consultation</li>
+                            </ul>
+                        </div>
+
+                        <div class="contact-card">
+                            <h3><i class="fas fa-phone-alt"></i> Besoin d'aide ?</h3>
+                            <p>Notre équipe est disponible pour vous aider</p>
+                            <a href="tel:+212612345678" class="phone-number">
+                                <i class="fas fa-phone"></i>
+                                +212 6 12 34 56 78
+                            </a>
+                            <div class="working-hours">
+                                <p><i class="fas fa-clock"></i> Horaires d'ouverture:</p>
+                                <p>Lun - Ven: 9h00 - 18h00</p>
+                                <p>Sam: 9h00 - 13h00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+    function proceedToPayment() {
+        // Rcupérer la méthode de paiement sélectionnée
+        const selectedPaymentMethod = document.querySelector('input[name="payment"]:checked').value;
+        
+        // Récupérer les données du formulaire
+        const consultationData = {
+            service: document.getElementById('service').value,
+            doctor: document.getElementById('doctor').value,
+            date: document.getElementById('date').value,
+            time: document.getElementById('time').value,
+            price: document.getElementById('consultation-price').textContent
+        };
+        
+        // Sauvegarder les données
+        localStorage.setItem('consultationData', JSON.stringify(consultationData));
+        
+        // Rediriger vers la page appropriée
+        if (selectedPaymentMethod === 'card') {
+            window.location.href = 'paiement_carte.html';
+        } else if (selectedPaymentMethod === 'paypal') {
+            window.location.href = 'paiement_paypal.html';
+        }
+    }
+
+    const doctorsByService = {
+        'teleconsultation': [
+            { id: 'dr1', name: 'Dr. Mohamed Ahmed', speciality: 'Médecin Généraliste' },
+            { id: 'dr2', name: 'Dr. Sara Benani', speciality: 'Psychologue' }
+        ],
+        'consultation-domicile': [
+            { id: 'dr3', name: 'Dr. Karim Idrissi', speciality: 'Dermatologue' },
+            { id: 'dr4', name: 'Dr. Mehdi Alami', speciality: 'Nutritionniste' }
+        ],
+        'consultation-cabinet': [
+            { id: 'dr5', name: 'Dr. Amina Alaoui', speciality: 'Endocrinologue' },
+            { id: 'dr6', name: 'Dr. Hassan Benjelloun', speciality: 'Cardiologue' }
+        ],
+        'suivi-grossesse': [
+            { id: 'dr7', name: 'Dr. Nadia Tazi', speciality: 'Pédiatre' },
+            { id: 'dr8', name: 'Dr. Meryem Lahlou', speciality: 'Pneumologue' }
+        ],
+        'pediatrie': [
+            { id: 'dr7', name: 'Dr. Nadia Tazi', speciality: 'Pédiatre' },
+            { id: 'dr2', name: 'Dr. Sara Benani', speciality: 'Psychologue' }
+        ],
+        'cardiologie': [
+            { id: 'dr6', name: 'Dr. Hassan Benjelloun', speciality: 'Cardiologue' },
+            { id: 'dr5', name: 'Dr. Amina Alaoui', speciality: 'Endocrinologue' }
+        ]
+    };
+
+    // Mettre à jour la liste des médecins quand un service est sélectionné
+    document.getElementById('service').addEventListener('change', function() {
+        const doctorSelect = document.getElementById('doctor');
+        const selectedService = this.value;
+        
+        // Mettre à jour le prix
+        const prices = {
+            'teleconsultation': '200 DH',
+            'consultation-domicile': '400 DH',
+            'consultation-cabinet': '300 DH',
+            'suivi-grossesse': '500 DH',
+            'pediatrie': '400 DH',
+            'cardiologie': '600 DH'
+        };
+        
+        if (prices[selectedService]) {
+            document.getElementById('consultation-price').textContent = prices[selectedService];
+        }
+
+        // Mettre à jour la liste des médecins
+        doctorSelect.innerHTML = '<option value="">Choisissez un médecin</option>';
+        doctorSelect.disabled = !selectedService;
+
+        if (selectedService && doctorsByService[selectedService]) {
+            doctorsByService[selectedService].forEach(doctor => {
+                const option = document.createElement('option');
+                option.value = doctor.id;
+                option.textContent = `${doctor.name} - ${doctor.speciality}`;
+                doctorSelect.appendChild(option);
+            });
+        }
+    });
+
+    function submitAppointmentRequest(event) {
+        event.preventDefault();
+
+        // Afficher un spinner de chargement
+        const loadingSpinner = document.createElement('div');
+        loadingSpinner.className = 'loading-spinner';
+        document.body.appendChild(loadingSpinner);
+
+        // Récupérer les données du formulaire
+        const consultationData = {
+            service: document.getElementById('service').value,
+            doctor: document.getElementById('doctor').value,
+            date: document.getElementById('date').value,
+            time: document.getElementById('time').value,
+            symptoms: document.getElementById('symptoms').value
+        };
+
+        // Simuler l'envoi au serveur
+        setTimeout(() => {
+            // Supprimer le spinner
+            loadingSpinner.remove();
+
+            // Créer et afficher la modal de confirmation
+            showConfirmationModal();
+        }, 1500);
+    }
+
+    function showConfirmationModal() {
+        const modalHTML = `
+            <div class="confirmation-modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <i class="fas fa-check-circle"></i>
+                        <h2>Demande Envoyée avec Succès!</h2>
+                    </div>
+                    <div class="modal-body">
+                        <p>Votre demande de rendez-vous a été bien reçue.</p>
+                        <p>Nous vous répondrons dans les 2 heures qui suivent.</p>
+                        <p>Un email de confirmation vous sera envoyé.</p>
+                    </div>
+                    <button onclick="closeModal()" class="modal-button">
+                        <i class="fas fa-times"></i> Fermer
+                    </button>
+                </div>
+            </div>
+        `;
+
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+    }
+
+    function closeModal() {
+        const modal = document.querySelector('.confirmation-modal');
+        if (modal) {
+            modal.remove();
+            // Rediriger vers la page d'accueil ou une autre page
+            // window.location.href = 'index.html';
+        }
+    }
+    </script>
+</body>
+</html> 

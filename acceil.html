@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultation Médicale</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-icon-new">
+                        <i class="fas fa-heartbeat"></i>
+                        <i class="fas fa-plus"></i>
+                    </div>
+                    <span class="logo-text">DabaDoct</span>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="acceil.html" class="active">Accueil</a></li>
+                    <li><a href="rendez-vous.html">Rendez-vous</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li class="consultation-menu">
+                        <a href="#" class="btn-consultation">
+                            Consultation <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="consultation-dropdown">
+                            <a href="rejoindre-consultation.html">
+                                <i class="fas fa-plus-circle"></i>
+                                rejoindre la consultation
+                            </a>
+                            <a href="mes-consultations.html">
+                                <i class="fas fa-list-alt"></i>
+                                Mes Consultations
+                            </a>
+                            
+                        </div>
+                    </li>
+                    <li class="profile-menu">
+                        <div class="profile-icon">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="profile-dropdown">
+                            <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                            <a href="deconnexion.html" class="logout-btn">
+                                <i class="fas fa-sign-out-alt"></i> Déconnexion
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="animate__animated animate__fadeIn">
+            <div class="hero-background">
+                <img src="img/young-handsome-physician-medical-robe-with-stethoscope_1303-17818.avif">
+                <div class="hero-content">
+                    <h1>Consultation Médicale En Ligne</h1>
+                    <p>Prenez rendez-vous avec nos médecins qualifiés</p>
+                    <button class="btn-rdv">Prendre Rendez-vous</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-section">
+            <div class="title-container">
+                <div class="title-background">SERVICES</div>
+                <h2 class="section-title">Nos Services en Téléconsultation</h2>
+            </div>
+            
+            <div class="services-container">
+                <!-- Service 1: Consultation Générale -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Consultation Générale</h3>
+                    <div class="price">
+                        <span class="amount">350 DH</span>
+                        <span class="period">/ Consultation</span>
+                    </div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i>Diagnostic Initial</li>
+                        <li><i class="fas fa-check"></i>Ordonnance en Ligne</li>
+                        <li><i class="fas fa-check"></i>Suivi Médical</li>
+                        <li><i class="fas fa-check"></i>Conseil Santé</li>
+                    </ul>
+                    <button class="btn-service" onclick="showServiceDetails('consultation-generale')">
+                        <i class="fas fa-plus-circle"></i> Voir plus
+                    </button>
+                </div>
+
+                <!-- Service 2: Suivi Psychologique -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Suivi Psychologique</h3>
+                    <div class="price">
+                        <span class="amount">400 DH</span>
+                        <span class="period">/ Séance</span>
+                    </div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i>Thérapie en Ligne</li>
+                        <li><i class="fas fa-check"></i>Gestion du Stress</li>
+                        <li><i class="fas fa-check"></i>Soutien Émotionnel</li>
+                        <li><i class="fas fa-check"></i>Suivi Personnalisé</li>
+                    </ul>
+                    <button class="btn-service" onclick="showServiceDetails('suivi-psychologique')">
+                        <i class="fas fa-plus-circle"></i> Voir plus
+                    </button>
+                </div>
+
+                <!-- Service 3: Consultation Dermatologique -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-allergies"></i>
+                    </div>
+                    <h3>Consultation Dermatologique</h3>
+                    <div class="price">
+                        <span class="amount">450 DH</span>
+                        <span class="period">/ Consultation</span>
+                    </div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i>Analyse Photos HD</li>
+                        <li><i class="fas fa-check"></i>Diagnostic à Distance</li>
+                        <li><i class="fas fa-check"></i>Prescription en Ligne</li>
+                        <li><i class="fas fa-check"></i>Suivi des Lésions</li>
+                    </ul>
+                    <button class="btn-service" onclick="showServiceDetails('consultation-dermatologique')">
+                        <i class="fas fa-plus-circle"></i> Voir plus
+                    </button>
+                </div>
+
+                <!-- Service 4: Suivi Nutritionnel -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3>Suivi Nutritionnel</h3>
+                    <div class="price">
+                        <span class="amount">300 DH</span>
+                        <span class="period">/ Consultation</span>
+                    </div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i>Plan Alimentaire</li>
+                        <li><i class="fas fa-check"></i>Conseils Nutritionnels</li>
+                        <li><i class="fas fa-check"></i>Suivi du Poids</li>
+                        <li><i class="fas fa-check"></i>Objectifs Personnalisés</li>
+                    </ul>
+                    <button class="btn-service" onclick="showServiceDetails('suivi-nutritionnel')">
+                        <i class="fas fa-plus-circle"></i> Voir plus
+                    </button>
+                </div>
+
+                <!-- Service 5: Consultation Endocrinologie -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Suivi Endocrinologique</h3>
+                    <div class="price">
+                        <span class="amount">500 DH</span>
+                        <span class="period">/ Consultation</span>
+                    </div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i>Suivi Diabète</li>
+                        <li><i class="fas fa-check"></i>Troubles Hormonaux</li>
+                        <li><i class="fas fa-check"></i>Analyse Résultats</li>
+                        <li><i class="fas fa-check"></i>Ajustement Traitement</li>
+                    </ul>
+                    <button class="btn-service" onclick="showServiceDetails('suivi-endocrinologique')">
+                        <i class="fas fa-plus-circle"></i> Voir plus
+                    </button>
+                </div>
+
+                <!-- Service 6: Consultation Cardiologique -->
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Suivi Cardiologique</h3>
+                    <div class="price">
+                        <span class="amount">550 DH</span>
+                        <span class="period">/ Consultation</span>
+                    </div>
+                    <ul class="features">
+                        <li><i class="fas fa-check"></i>Analyse ECG à Distance</li>
+                        <li><i class="fas fa-check"></i>Suivi Tension</li>
+                        <li><i class="fas fa-check"></i>Ajustement Traitement</li>
+                        <li><i class="fas fa-check"></i>Conseils Prévention</li>
+                    </ul>
+                    <button class="btn-service" onclick="showServiceDetails('suivi-cardiologique')">
+                        <i class="fas fa-plus-circle"></i> Voir plus
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="doctors-section">
+            <div class="title-container">
+                <div class="title-background">MÉDECINS</div>
+                <h2 class="section-title">Nos Médecins Spécialistes</h2>
+            </div>
+            <div class="container">
+                <div class="doctors-grid">
+                    <!-- Médecin Généraliste -->
+                    <div class="doctor-card">
+                        <div class="doctor-image">
+                            <span class="availability-badge">Disponible 7/7</span>
+                            <img src="img/smiling-doctor-with-strethoscope-isolated-grey_651396-974.avif" alt="Dr. Mohamed Ahmed">
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Mohamed Ahmed</h3>
+                            <p class="doctor-specialty">Médecin Généraliste</p>
+                            <div class="doctor-details">
+                                <p><i class="fas fa-graduation-cap"></i> 15 ans d'expérience</p>
+                                <p><i class="fas fa-stethoscope"></i> Consultation générale</p>
+                                <p><i class="fas fa-clock"></i> Disponible en ligne</p>
+                            </div>
+                            <div class="doctor-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.8)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Psychologue -->
+                    <div class="doctor-card">
+                        <div class="doctor-image">
+                            <span class="availability-badge">Disponible Lun-Ven</span>
+                            <img src="img/woman-doctor-wearing-lab-coat-with-stethoscope-isolated_1303-29791.avif" alt="Dr. Sara Benani">
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Sara Benani</h3>
+                            <p class="doctor-specialty">Psychologue</p>
+                            <div class="doctor-details">
+                                <p><i class="fas fa-graduation-cap"></i> 12 ans d'expérience</p>
+                                <p><i class="fas fa-brain"></i> Thérapie en ligne</p>
+                                <p><i class="fas fa-clock"></i> Séances flexibles</p>
+                            </div>
+                            <div class="doctor-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(5.0)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dermatologue -->
+                    <div class="doctor-card">
+                        <div class="doctor-image">
+                            <span class="availability-badge">Disponible Mar-Sam</span>
+                            <img src="img/portrait-successful-mid-adult-doctor-with-crossed-arms_1262-12865.avif" alt="Dr. Karim Idrissi">
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Karim Idrissi</h3>
+                            <p class="doctor-specialty">Dermatologue</p>
+                            <div class="doctor-details">
+                                <p><i class="fas fa-graduation-cap"></i> 14 ans d'expérience</p>
+                                <p><i class="fas fa-allergies"></i> Consultation dermatologique</p>
+                                <p><i class="fas fa-clock"></i> Téléconsultation</p>
+                            </div>
+                            <div class="doctor-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.9)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nutritionniste -->
+                    <div class="doctor-card">
+                        <div class="doctor-image">
+                            <span class="availability-badge">Disponible 7/7</span>
+                            <img src="img/smiling-touching-arms-crossed-room-hospital_1134-799.avif" alt="Dr. Fatima Zohra">
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Mehdi Alami</h3>
+                            <p class="doctor-specialty">Nutritionniste</p>
+                            <div class="doctor-details">
+                                <p><i class="fas fa-graduation-cap"></i> 10 ans d'expérience</p>
+                                <p><i class="fas fa-apple-alt"></i> Suivi nutritionnel</p>
+                                <p><i class="fas fa-clock"></i> Consultation en ligne</p>
+                            </div>
+                            <div class="doctor-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.7)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Endocrinologue -->
+                    <div class="doctor-card">
+                        <div class="doctor-image">
+                            <span class="availability-badge">Disponible Lun-Ven</span>
+                            <img src="img/female-doctor-hospital-with-stethoscope_23-2148827776.avif" alt="Dr. Amina Alaoui">
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Amina Alaoui</h3>
+                            <p class="doctor-specialty">Endocrinologue</p>
+                            <div class="doctor-details">
+                                <p><i class="fas fa-graduation-cap"></i> 13 ans d'expérience</p>
+                                <p><i class="fas fa-flask"></i> Suivi diabète et hormones</p>
+                                <p><i class="fas fa-clock"></i> Téléconsultation</p>
+                            </div>
+                            <div class="doctor-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.9)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Cardiologue -->
+                    <div class="doctor-card">
+                        <div class="doctor-image">
+                            <span class="availability-badge">Disponible Mar-Sam</span>
+                            <img src="img/doctor-with-his-arms-crossed-white-background_1368-5790.avif" alt="Dr. Hassan Benjelloun">
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Hassan Benjelloun</h3>
+                            <p class="doctor-specialty">Cardiologue</p>
+                            <div class="doctor-details">
+                                <p><i class="fas fa-graduation-cap"></i> 18 ans d'expérience</p>
+                                <p><i class="fas fa-heartbeat"></i> Suivi cardiologique</p>
+                                <p><i class="fas fa-clock"></i> Consultation à distance</p>
+                            </div>
+                            <div class="doctor-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.7)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dr. Nadia Tazi - Pédiatre -->
+                    <div class="doctor-card">
+                        <div class="doctor-image">
+                            <span class="availability-badge">Disponible 7/7</span>
+                            <img src="img/front-view-female-doctor-posing-hospital_23-2148827784.avif" alt="Dr. Nadia Tazi">
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr. Nadia Tazi</h3>
+                            <p class="doctor-specialty">Pédiatre</p>
+                            <div class="doctor-details">
+                                <p><i class="fas fa-graduation-cap"></i>16 ans d'expérience</p>
+                                <p><i class="fas fa-baby"></i>Suivi pédiatrique</p>
+                                <p><i class="fas fa-clock"></i>Téléconsultation</p>
+                            </div>
+                            <div class="doctor-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(4.9)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dr. Youssef El Mansouri - Pneumologue -->
+                    <div class="doctor-card">
+                        <div class="doctor-image">
+                            <span class="availability-badge">Disponible Lun-Sam</span>
+                            <img src="img/doctor-with-white-coat-stethoscope_144627-43879.avif" alt="Dr. Youssef El Mansouri">
+                        </div>
+                        <div class="doctor-info">
+                            <h3 class="doctor-name">Dr.Meryem Lahlou</h3>
+                            <p class="doctor-specialty">Pneumologue</p>
+                            <div class="doctor-details">
+                                <p><i class="fas fa-graduation-cap"></i>14 ans d'expérience</p>
+                                <p><i class="fas fa-lungs"></i>Maladies respiratoires</p>
+                                <p><i class="fas fa-clock"></i>Consultation à distance</p>
+                            </div>
+                            <div class="doctor-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(4.8)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Tous les modals avec format compact -->
+
+    <!-- Modal Consultation Générale -->
+    <div id="modal-consultation-generale" class="service-modal">
+        <div class="modal-content compact">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2><i class="fas fa-user-md"></i> Consultation Générale</h2>
+                <p class="price-tag">350 DH <span>/ 30 min</span></p>
+            </div>
+            <div class="modal-body">
+                <div class="service-info-grid">
+                    <div class="info-block">
+                        <h3><i class="fas fa-info-circle"></i> Services inclus</h3>
+                        <ul class="compact-list">
+                            <li>Diagnostic initial</li>
+                            <li>Ordonnance en ligne</li>
+                            <li>Suivi médical</li>
+                            <li>Conseil santé</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h3><i class="fas fa-list"></i> Étapes</h3>
+                        <ol class="compact-list">
+                            <li>RDV en ligne</li>
+                            <li>Consultation vidéo</li>
+                            <li>Suivi digital</li>
+                        </ol>
+                    </div>
+                </div>
+                <a href="rendez-vous.html" class="btn-prendre-rdv">
+                    <i class="fas fa-calendar-plus"></i> Réserver
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Suivi Psychologique -->
+    <div id="modal-suivi-psychologique" class="service-modal">
+        <div class="modal-content compact">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2><i class="fas fa-brain"></i> Suivi Psychologique</h2>
+                <p class="price-tag">400 DH <span>/ 45 min</span></p>
+            </div>
+            <div class="modal-body">
+                <div class="service-info-grid">
+                    <div class="info-block">
+                        <h3><i class="fas fa-info-circle"></i> Services inclus</h3>
+                        <ul class="compact-list">
+                            <li>Thérapie en ligne</li>
+                            <li>Gestion du stress</li>
+                            <li>Soutien émotionnel</li>
+                            <li>Suivi personnalisé</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h3><i class="fas fa-list"></i> Étapes</h3>
+                        <ol class="compact-list">
+                            <li>Évaluation initiale</li>
+                            <li>Séance thérapeutique</li>
+                            <li>Plan de suivi</li>
+                        </ol>
+                    </div>
+                </div>
+                <a href="rendez-vous.html" class="btn-prendre-rdv">
+                    <i class="fas fa-calendar-plus"></i> Réserver
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Consultation Dermatologique -->
+    <div id="modal-consultation-dermatologique" class="service-modal">
+        <div class="modal-content compact">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2><i class="fas fa-allergies"></i> Consultation Dermatologique</h2>
+                <p class="price-tag">450 DH <span>/ 30 min</span></p>
+            </div>
+            <div class="modal-body">
+                <div class="service-info-grid">
+                    <div class="info-block">
+                        <h3><i class="fas fa-info-circle"></i> Services inclus</h3>
+                        <ul class="compact-list">
+                            <li>Analyse photos HD</li>
+                            <li>Diagnostic cutané</li>
+                            <li>Prescription adaptée</li>
+                            <li>Suivi des lésions</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h3><i class="fas fa-list"></i> Étapes</h3>
+                        <ol class="compact-list">
+                            <li>Envoi des photos</li>
+                            <li>Consultation vidéo</li>
+                            <li>Suivi traitement</li>
+                        </ol>
+                    </div>
+                </div>
+                <a href="rendez-vous.html" class="btn-prendre-rdv">
+                    <i class="fas fa-calendar-plus"></i> Réserver
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Suivi Nutritionnel -->
+    <div id="modal-suivi-nutritionnel" class="service-modal">
+        <div class="modal-content compact">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2><i class="fas fa-apple-alt"></i> Suivi Nutritionnel</h2>
+                <p class="price-tag">300 DH <span>/ 45 min</span></p>
+            </div>
+            <div class="modal-body">
+                <div class="service-info-grid">
+                    <div class="info-block">
+                        <h3><i class="fas fa-info-circle"></i> Services inclus</h3>
+                        <ul class="compact-list">
+                            <li>Plan alimentaire</li>
+                            <li>Suivi du poids</li>
+                            <li>Conseils nutritionnels</li>
+                            <li>Objectifs personnalisés</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h3><i class="fas fa-list"></i> Étapes</h3>
+                        <ol class="compact-list">
+                            <li>Bilan initial</li>
+                            <li>Plan personnalisé</li>
+                            <li>Suivi régulier</li>
+                        </ol>
+                    </div>
+                </div>
+                <a href="rendez-vous.html" class="btn-prendre-rdv">
+                    <i class="fas fa-calendar-plus"></i> Réserver
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Suivi Endocrinologique -->
+    <div id="modal-suivi-endocrinologique" class="service-modal">
+        <div class="modal-content compact">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2><i class="fas fa-flask"></i> Suivi Endocrinologique</h2>
+                <p class="price-tag">500 DH <span>/ 40 min</span></p>
+            </div>
+            <div class="modal-body">
+                <div class="service-info-grid">
+                    <div class="info-block">
+                        <h3><i class="fas fa-info-circle"></i> Services inclus</h3>
+                        <ul class="compact-list">
+                            <li>Analyse bilans</li>
+                            <li>Suivi diabète</li>
+                            <li>Ajustement traitement</li>
+                            <li>Conseils spécialisés</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h3><i class="fas fa-list"></i> Étapes</h3>
+                        <ol class="compact-list">
+                            <li>Envoi analyses</li>
+                            <li>Consultation</li>
+                            <li>Plan traitement</li>
+                        </ol>
+                    </div>
+                </div>
+                <a href="rendez-vous.html" class="btn-prendre-rdv">
+                    <i class="fas fa-calendar-plus"></i> Réserver
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Suivi Cardiologique -->
+    <div id="modal-suivi-cardiologique" class="service-modal">
+        <div class="modal-content compact">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2><i class="fas fa-heartbeat"></i> Suivi Cardiologique</h2>
+                <p class="price-tag">550 DH <span>/ 35 min</span></p>
+            </div>
+            <div class="modal-body">
+                <div class="service-info-grid">
+                    <div class="info-block">
+                        <h3><i class="fas fa-info-circle"></i> Services inclus</h3>
+                        <ul class="compact-list">
+                            <li>Analyse ECG</li>
+                            <li>Suivi tension</li>
+                            <li>Ajustement traitement</li>
+                            <li>Conseils prévention</li>
+                        </ul>
+                    </div>
+                    <div class="info-block">
+                        <h3><i class="fas fa-list"></i> Étapes</h3>
+                        <ol class="compact-list">
+                            <li>Envoi données</li>
+                            <li>Consultation</li>
+                            <li>Recommandations</li>
+                        </ol>
+                    </div>
+                </div>
+                <a href="rendez-vous.html" class="btn-prendre-rdv">
+                    <i class="fas fa-calendar-plus"></i> Réserver
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 
